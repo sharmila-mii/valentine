@@ -1,68 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Happy Valentine's Day ❤️</title>
+<title>Special Valentine ❤️</title>
 
 <style>
-body {
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ff758c;
+    font-family:Arial;
+    color:white;
+    text-align:center;
 }
 
-.card {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 350px;
+#videoBox{
+    display:none;
 }
 
-h1 {
-    color: #ff4d6d;
-}
-
-.heart {
-    font-size: 50px;
-    animation: beat 1s infinite;
-}
-
-@keyframes beat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-button {
-    background-color: #ff4d6d;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #e63950;
-}
 </style>
-
 </head>
 
 <body>
 
-<div class="card">
-    <div class="heart">❤️</div>
-    <h1>Happy Valentine's Day!</h1>
-    <p>You make my world brighter every day 💕</p>
-    <button onclick="alert('Love you forever ❤️')">Click Me</button>
+<div id="messageBox">
+    <h1 id="message">Loading...</h1>
 </div>
+
+<div id="videoBox">
+    <h1>Our Special Moment ❤️</h1>
+
+    <video width="600" controls autoplay>
+        <source src="love.mp4" type="video/mp4">
+    </video>
+
+</div>
+
+<script>
+
+/* Romantic messages */
+let messages = [
+"Hi ❤️",
+"You are something special...",
+"You make my world beautiful...",
+"I have something to show you..."
+];
+
+let i = 0;
+
+function showMessages(){
+
+    if(i < messages.length){
+        document.getElementById("message").innerText = messages[i];
+        i++;
+        setTimeout(showMessages,2000); // change message every 2 seconds
+    }
+    else{
+        document.getElementById("messageBox").style.display="none";
+        document.getElementById("videoBox").style.display="block";
+    }
+
+}
+
+showMessages();
+
+</script>
 
 </body>
 </html>
